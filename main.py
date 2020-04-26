@@ -64,7 +64,7 @@ class Env:
     def get_reward(self, src, dest):
         if src==-1:
             return (abs(self.depot[1] - self.orders_data[dest,1]) + abs(self.depot[2] - self.orders_data[dest,2]))
-        return (abs(self.orders_data[dest,1] - self.orders_data[dest,1]) + abs(self.orders_data[dest,2] - self.orders_data[dest,2]))
+        return (abs(self.orders_data[src,1] - self.orders_data[dest,1]) + abs(self.orders_data[src,2] - self.orders_data[dest,2]))
         
     def step(self, order_id):
         self.orders_data[order_id,0] = 0
