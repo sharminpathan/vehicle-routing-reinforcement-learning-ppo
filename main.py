@@ -41,7 +41,7 @@ class Env:
         self.capacity = 15
         self.path = [-1]
         self.depot = [0,0,0]
-        self.orders_data = np.array([[1,100,100],[2,200,200],[3,300,300]])
+        self.orders_data = list()
         self.done = False
         self.mask = np.ones(NUM_ACTIONS)
         self.dist = 0
@@ -49,7 +49,7 @@ class Env:
         
     def reset(self):
         self.path = [-1]
-        self.orders_data = np.array([[1,1,1],[2,2,2],[3,3,3]])
+        self.orders_data = np.array([[1,1,1],[2,2,2],[3,3,3],[4,4,4],[5,5,5],[6,6,6],[7,7,7],[8,8,8],[9,9,9]])
         self.done = False
         self.mask = np.ones(NUM_ACTIONS)
         self.dist = 0
