@@ -1,4 +1,3 @@
-
 import numpy as np
 import keras
 from keras.models import Model
@@ -78,7 +77,7 @@ class Env:
         return self.orders_data.copy(), -self.dist, self.is_over()
         
        
-  class Agent:
+class Agent:
     def __init__(self):
         self.actor = self.actor_model()
         self.critic = self.critic_model()
@@ -192,7 +191,7 @@ class Env:
             self.predict()
             
             
-  if __name__ == '__main__':
+if __name__ == '__main__':
     print(datetime.now())
     ag = Agent()
     ag.run()
