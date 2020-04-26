@@ -7,12 +7,10 @@ from keras.optimizers import Adam, SGD
 import numpy as np
 import pandas as pd
 from math import*
-from datetime import datetime
 
 from keras.models import Model, load_model
 from keras.layers import merge, Activation, Conv1D, Dense, Embedding, Flatten, Input, LSTM, Masking, RepeatVector, Concatenate, concatenate, Multiply
 
-CONTINUOUS = False
 
 EPISODES = 100
 
@@ -192,6 +190,5 @@ class Agent:
             
             
 if __name__ == '__main__':
-    print(datetime.now())
     ag = Agent()
     ag.run()
