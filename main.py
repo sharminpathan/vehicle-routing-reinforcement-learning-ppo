@@ -21,6 +21,7 @@ GAMMA = 0.99
 BUFFER_SIZE = 1000
 BATCH_SIZE = 100
 NUM_ACTIONS = 5
+ENTROPY_LOSS = 5e-3
 LR = 1e-4  # Lower lr stabilises training greatly
 
 DUMMY_ACTION, DUMMY_VALUE = np.zeros((1, NUM_ACTIONS)), np.zeros((1, 1))
@@ -172,7 +173,7 @@ class Agent:
                 action[a]=2
             state, reward, done = self.env.step(np.argmax(action))
             score+=reward
-        print('path: ',self.env.path, 'total distance: 'self.env.total_dist)
+        print('path: ',self.env.path, 'total distance: ',self.env.total_dist)
         
     def run(self):
         for i in range(EPISODES):
