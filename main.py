@@ -20,7 +20,7 @@ GAMMA = 0.99
 
 BUFFER_SIZE = 1000
 BATCH_SIZE = 100
-NUM_ACTIONS = 3
+NUM_ACTIONS = 5
 LR = 1e-4  # Lower lr stabilises training greatly
 
 DUMMY_ACTION, DUMMY_VALUE = np.zeros((1, NUM_ACTIONS)), np.zeros((1, 1))
@@ -49,7 +49,7 @@ class Env:
         
     def reset(self):
         self.path = [-1]
-        self.orders_data = np.array([[1,1,1],[2,2,2],[3,3,3],[4,4,4],[5,5,5],[6,6,6],[7,7,7],[8,8,8],[9,9,9]])
+        self.orders_data = np.array([[1,1,1],[2,2,2],[3,3,3],[4,4,4],[5,5,5]])
         self.done = False
         self.mask = np.ones(NUM_ACTIONS)
         self.dist = 0
