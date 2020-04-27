@@ -20,7 +20,7 @@ GAMMA = 0.99
 
 BUFFER_SIZE = 1000
 BATCH_SIZE = 100
-NUM_ACTIONS = 5
+NUM_ACTIONS = 3
 ENTROPY_LOSS = 5e-3
 LR = 1e-4  # Lower lr stabilises training greatly
 
@@ -50,7 +50,7 @@ class Env:
         
     def reset(self):
         self.path = [-1]
-        self.orders_data = np.array([[1,1,1],[2,2,2],[3,3,3],[4,4,4],[5,5,5]])
+        self.orders_data = np.array([[1,1,1],[2,2,2],[3,3,3]])
         self.done = False
         self.mask = np.ones(NUM_ACTIONS)
         self.dist = 0
