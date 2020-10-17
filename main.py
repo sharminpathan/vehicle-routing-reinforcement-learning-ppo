@@ -69,11 +69,11 @@ class Env:
         
     def step(self, order_id):
         self.orders_data[order_id,0] = 0
-        self.dist = self.get_reward(self.path[-1],order_id)
+        self.dist = -self.get_reward(self.path[-1],order_id)
         self.path.append(order_id)
         self.mask[order_id] = 0
         self.total_dist = self.total_dist + self.dist
-        return self.orders_data.copy(), -self.dist, self.is_over()
+        return self.orders_data.copy(), self.dist, self.is_over()
         
        
 class Agent:
@@ -182,7 +182,7 @@ class Agent:
             old_prediction = pred
             pred_values = self.critic.predict([obs, mask])
 
-            advantage = np.abs(reward) - np.abs(pred_values)
+            advantage = np.abs(pred_values) - np.abs(reward)
 
             actor_loss = self.actor.fit([obs, mask, advantage, old_prediction], [action], batch_size=BATCH_SIZE, shuffle=True, epochs=EPOCHS, verbose=False)
             critic_loss = self.critic.fit([obs, mask], [reward], batch_size=BATCH_SIZE, shuffle=True, epochs=EPOCHS, verbose=False)
