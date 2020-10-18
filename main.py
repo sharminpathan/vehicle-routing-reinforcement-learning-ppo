@@ -173,7 +173,7 @@ class Agent:
                 action[a]=2
             state, reward, done = self.env.step(np.argmax(action))
             score+=reward
-        print('path: ',self.env.path, 'total distance: ',self.env.total_dist)
+        print('path: ',self.env.path, 'total distance: ',np.abs(self.env.total_dist))
         
     def run(self):
         for i in range(EPISODES):
