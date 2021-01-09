@@ -182,7 +182,7 @@ class Agent:
             old_prediction = pred
             pred_values = self.critic.predict([obs, mask])
 
-            advantage = (np.abs(pred_values) - np.abs(reward))*100
+            advantage = reward - pred_values
 
             actor_loss = self.actor.fit([obs, mask, advantage, old_prediction], [action], batch_size=BATCH_SIZE, shuffle=True, epochs=EPOCHS, verbose=False)
             critic_loss = self.critic.fit([obs, mask], [reward], batch_size=BATCH_SIZE, shuffle=True, epochs=EPOCHS, verbose=False)
